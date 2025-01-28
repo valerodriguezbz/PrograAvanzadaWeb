@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.DA
 {
-    public interface ICartServiceBW
+    public interface ICartServiceDA
     {
         Task<IEnumerable<CartService>> Get();
         Task<CartService> Get(Guid Id);

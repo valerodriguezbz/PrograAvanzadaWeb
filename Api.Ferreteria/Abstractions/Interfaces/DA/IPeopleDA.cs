@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.DA
 {
-    public interface IPeopleBW
+    public interface IPeopleDA
     {
         Task<IEnumerable<People>> Get();
         Task<People> Get(Guid Id);

@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.DA
 {
-    internal interface IProductsCategoriesBW
+    public interface IProductsCategoriesDA
     {
         Task<IEnumerable<ProductsCategories>> Get();
         Task<ProductsCategories> Get(Guid IdProduct);

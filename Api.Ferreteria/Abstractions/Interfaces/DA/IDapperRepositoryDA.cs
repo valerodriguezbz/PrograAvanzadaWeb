@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.DA
 {
-    public interface IDapperRepositoryBW
+    public interface IDapperRepositoryDA
     {
         SqlConnection GetDapperRepository();
     }

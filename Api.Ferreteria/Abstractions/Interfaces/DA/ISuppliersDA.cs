@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.DA
 {
-    public interface ISuppliersBW
+    public interface ISuppliersDA
     {
         Task<IEnumerable<Suppliers>> Get();
         Task<Suppliers> Get(Guid Id);

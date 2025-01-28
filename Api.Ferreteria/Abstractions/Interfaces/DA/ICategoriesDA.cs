@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.DA
 {
-    public interface ICategoriesBW
+    public interface ICategoriesDA
     {
         Task<IEnumerable<Categories>> Get();
         Task<Categories> Get(Guid Id);
