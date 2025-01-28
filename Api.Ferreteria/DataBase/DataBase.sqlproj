@@ -72,8 +72,5 @@
     <Build Include="Tables\CartsxProducts.sql" />
     <Build Include="Tables\Suppliers.sql" />
     <Build Include="Tables\Inventories.sql" />
-    <Build Include="Tables\Bills.sql" />
-    <Build Include="Tables\BillProduct.sql" />
-    <Build Include="Tables\BillService.sql" />
   </ItemGroup>
 </Project>
