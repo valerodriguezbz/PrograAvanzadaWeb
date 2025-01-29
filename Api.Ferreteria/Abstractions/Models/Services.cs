@@ -1,6 +1,8 @@
-﻿namespace Abstractions.Models
+﻿using Abstractions.Interfaces;
+
+namespace Abstractions.Models
 {
-    public class Services
+    public class Services : IHasName
     {
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -13,7 +15,7 @@
         public int? this_id_user_create { get; set; }
     }
 
-    public class ServicesRequest
+    public class ServicesRequest : IHasName
     {
         public string Name { get; set; }
         public string Description { get; set; }

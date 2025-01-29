@@ -1,6 +1,8 @@
-﻿namespace Abstractions.Models
+﻿using Abstractions.Interfaces;
+
+namespace Abstractions.Models
 {
-    public class Products
+    public class Products : IHasName
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
@@ -12,7 +14,7 @@
         public int? this_id_user_create { get; set; }
     }
 
-    public class ProductsRequest
+    public class ProductsRequest : IHasName
     {
         public string Name { get; set; }
         public string Description { get; set; }

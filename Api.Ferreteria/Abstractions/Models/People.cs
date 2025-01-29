@@ -1,6 +1,8 @@
-﻿namespace Abstractions.Models
+﻿using Abstractions.Interfaces;
+
+namespace Abstractions.Models
 {
-    public class People
+    public class People : IHasName, IHasAddress, IHasEmail, IHasFirstLastName, IHasCity
     {
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -12,7 +14,7 @@
         public DateTime? CreatedAt { get; set; }
     }
 
-    public class PeopleRequest
+    public class PeopleRequest : IHasName, IHasAddress, IHasEmail, IHasFirstLastName, IHasCity
     {
         public string Name { get; set; }
         public string FirstLastName { get; set; }

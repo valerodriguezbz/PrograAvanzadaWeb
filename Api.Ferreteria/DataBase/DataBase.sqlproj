@@ -57,6 +57,9 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\People.sql" />
@@ -72,5 +75,15 @@
     <Build Include="Tables\CartsxProducts.sql" />
     <Build Include="Tables\Suppliers.sql" />
     <Build Include="Tables\Inventories.sql" />
+    <Build Include="dbo\Views\Get_Suppliers_View.sql" />
+    <Build Include="dbo\Views\Get_Categories_View.sql" />
+    <Build Include="dbo\Stored Procedures\Update_Suppliers.sql" />
+    <Build Include="dbo\Stored Procedures\Update_Categories.sql" />
+    <Build Include="dbo\Stored Procedures\Get_Supplier_By_Id.sql" />
+    <Build Include="dbo\Stored Procedures\Get_Category_By_Id.sql" />
+    <Build Include="dbo\Stored Procedures\Delete_Suppliers.sql" />
+    <Build Include="dbo\Stored Procedures\Delete_Categories.sql" />
+    <Build Include="dbo\Stored Procedures\Add_Suppliers.sql" />
+    <Build Include="dbo\Stored Procedures\Add_Categories.sql" />
   </ItemGroup>
 </Project>

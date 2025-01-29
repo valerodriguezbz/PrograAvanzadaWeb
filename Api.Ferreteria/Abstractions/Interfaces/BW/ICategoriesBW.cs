@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.BW
 {
-    public interface ICategoriesController
+    public interface ICategoriesBW
     {
         Task<IEnumerable<Categories>> Get();
         Task<Categories> Get(int Id);

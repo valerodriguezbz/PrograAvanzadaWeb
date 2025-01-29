@@ -44,7 +44,7 @@ namespace DA
         public async Task<IEnumerable<Inventories>> Get()
         {
             string sql = @"Get_Inventories";
-            var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql);
+            var result = await _sqlConnection.QueryAsync<Inventories>(sql);
             return result;
         }
 

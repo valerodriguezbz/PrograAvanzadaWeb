@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.BW
 {
-    public interface ICartsController
+    public interface ICartsBW
     {
         Task<IEnumerable<Carts>> Get();
         Task<Carts> Get(Guid Id);

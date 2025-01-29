@@ -43,23 +43,25 @@ namespace DA
             return result;
         }
 
-        public async Task<IEnumerable<CartsxProducts>> Get()
+        public async Task<IEnumerable<Suppliers>> Get()
         {
-            string sql = @"Get_Suppliers";
-            var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql);
+            string sql = @"SELECT * FROM Get_Suppliers_View";
+            var result = await _sqlConnection.QueryAsync<Suppliers>(sql);
+            if (!result.Any())
+                return null;
             return result;
         }
 
-        public async Task<CartsxProducts> Get(Guid Id)
+        public async Task<Suppliers> Get(Guid Id)
         {
-            string sql = @"Get_Supplier";
-            var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql, new { Id = Id });
-            if (result.FirstOrDefault() == null)
+            string sql = @"Get_Supplier_By_Id";
+            var result = await _sqlConnection.QueryAsync<Suppliers>(sql, new { Id = Id });
+            if (!result.Any())
                 return null;
             return result.FirstOrDefault();
         }
 
-        public async Task<Guid> Update(CartsxProducts suppliers)
+        public async Task<Guid> Update(Suppliers suppliers)
         {
             string sql = @"Update_Suppliers";
             var resultTemp = await Get(suppliers.Id);

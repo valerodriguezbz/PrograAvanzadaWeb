@@ -1,6 +1,8 @@
-﻿namespace Abstractions.Models
+﻿using Abstractions.Interfaces;
+
+namespace Abstractions.Models
 {
-    public class CartsxProducts
+    public class Suppliers : IHasName, IHasCity, IHasAddress, IHasEmail
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
@@ -12,7 +14,7 @@
         public int? This_id_user_create { get; set; }
     }
 
-    public class SuppliersRequest
+    public class SuppliersRequest : IHasName, IHasCity, IHasAddress, IHasEmail
     {
         public string Name { get; set; }
         public string City { get; set; }

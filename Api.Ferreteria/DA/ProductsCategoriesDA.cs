@@ -49,7 +49,7 @@ namespace DA
         public async Task<ProductsCategories> Get(Guid IdProduct)
         {
             string sql = @"Get_ProductsCategories";
-            var result = await _sqlConnection.QueryAsync<ProductsCategories>(sql, new { Id = Id });
+            var result = await _sqlConnection.QueryAsync<ProductsCategories>(sql, new { Id = IdProduct });
             if (result.FirstOrDefault() == null)
                 return null;
             return result.FirstOrDefault();

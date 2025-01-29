@@ -19,7 +19,7 @@ namespace DA
         public async Task<int> Add(CategoriesRequest categories)
         {
             string sql = @"Add_Categories";
-            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
+            var result = await _sqlConnection.ExecuteScalarAsync<int>(sql,
                 new
                 {
                     Name = categories.Name
@@ -39,14 +39,14 @@ namespace DA
 
         public async Task<IEnumerable<Categories>> Get()
         {
-            string sql = @"Get_Categories";
+            string sql = @"SELECT * FROM Get_Categories_View";
             var result = await _sqlConnection.QueryAsync<Categories>(sql);
             return result;
         }
 
         public async Task<Categories> Get(int Id)
         {
-            string sql = @"Get_Category";
+            string sql = @"Get_Category_By_Id";
             var result = await _sqlConnection.QueryAsync<Categories>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;

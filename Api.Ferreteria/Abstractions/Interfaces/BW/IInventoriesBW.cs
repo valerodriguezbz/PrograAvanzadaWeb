@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.BW
 {
-    public interface IInventoriesController
+    public interface IInventoriesBW
     {
         Task<IEnumerable<Inventories>> Get();
         Task<Inventories> Get(int Id);

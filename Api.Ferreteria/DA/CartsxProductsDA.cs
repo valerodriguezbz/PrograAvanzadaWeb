@@ -57,13 +57,13 @@ namespace DA
         public async Task<Guid> Update(CartsxProducts cartsxProducts)
         {
             string sql = @"Update_Suppliers";
-            var resultTemp = await Get(cartsxProducts.Id);
+            var resultTemp = await Get(cartsxProducts.IdCart);
             if (resultTemp == null)
                 return Guid.Empty;
             var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
                 new
                 {
-                    Id = cartsxProducts.Id,
+                    Id = cartsxProducts.IdCart,
                     IdProduct = cartsxProducts.IdProduct,
                     Amount = cartsxProducts.Amount
                 });

@@ -2,7 +2,7 @@
 
 namespace Abstractions.Interfaces.BW
 {
-    public interface IProductsController
+    public interface IProductsBW
     {
         Task<IEnumerable<Products>> Get();
         Task<Products> Get(Guid Id);
