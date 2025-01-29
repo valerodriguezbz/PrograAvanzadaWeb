@@ -5,9 +5,9 @@ namespace Abstractions.Interfaces.BW
     public interface IInventoriesController
     {
         Task<IEnumerable<Inventories>> Get();
-        Task<Inventories> Get(Guid Id);
+        Task<Inventories> Get(int Id);
         Task<Guid> Add(InventoriesRequest inventories);
         Task<Guid> Update(Inventories inventories);
-        Task<Guid> Delete(Guid Id);
+        Task<Guid> Delete(int Id);
     }
 }

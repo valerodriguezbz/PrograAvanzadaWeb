@@ -4,10 +4,10 @@ namespace Abstractions.Interfaces.BW
 {
     public interface ISuppliersController
     {
-        Task<IEnumerable<Suppliers>> Get();
-        Task<Suppliers> Get(Guid Id);
+        Task<IEnumerable<CartsxProducts>> Get();
+        Task<CartsxProducts> Get(Guid Id);
         Task<Guid> Add(SuppliersRequest suppliers);
-        Task<Guid> Update(Suppliers suppliers);
+        Task<Guid> Update(CartsxProducts suppliers);
         Task<Guid> Delete(Guid Id);
     }
 }

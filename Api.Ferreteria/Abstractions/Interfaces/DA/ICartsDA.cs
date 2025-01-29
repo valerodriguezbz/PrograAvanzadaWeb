@@ -6,7 +6,7 @@ namespace Abstractions.Interfaces.DA
     {
         Task<IEnumerable<Carts>> Get();
         Task<Carts> Get(Guid Id);
-        Task<Guid> Add(Carts carts);
+        Task<Guid> Add(CartsRequest carts);
         Task<Guid> Update(Carts carts);
         Task<Guid> Delete(Guid Id);
     }

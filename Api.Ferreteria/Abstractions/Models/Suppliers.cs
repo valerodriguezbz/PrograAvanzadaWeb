@@ -1,6 +1,6 @@
 ﻿namespace Abstractions.Models
 {
-    public class Suppliers
+    public class CartsxProducts
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }

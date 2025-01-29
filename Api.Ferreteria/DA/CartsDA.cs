@@ -5,33 +5,32 @@ using Microsoft.Data.SqlClient;
 
 namespace DA
 {
-    public class ProductsCategoriesDA : IProductsCategoriesDA
+    public class CartsDA : ICartsDA
     {
         private IDapperRepositoryDA _dapperRepository;
         private SqlConnection _sqlConnection;
 
-        public ProductsCategoriesDA(IDapperRepositoryDA dapperRepository)
+        public CartsDA(IDapperRepositoryDA dapperRepository)
         {
             _dapperRepository = dapperRepository;
             _sqlConnection = _dapperRepository.GetDapperRepository();
         }
 
-        public async Task<Guid> Add(ProductsCategories productsCategories)
+        public async Task<Guid> Add(CartsRequest carts)
         {
-            string sql = @"Add_ProductsCategories";
+            string sql = @"Add_Carts";
             var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
                 new
                 {
-                    IdProduct = productsCategories.IdProduct,
-                    IdCategory = productsCategories.IdCategory,
-                    Name = productsCategories.Name
+                    IdUser = carts.IdUser,
+                    DateCreated = carts.DateCreated
                 });
             return result;
         }
 
         public async Task<Guid> Delete(Guid Id)
         {
-            string sql = @"Delete_ProductsCategories";
+            string sql = @"Delete_Carts";
             var consultResultTemp = await Get(Id);
             if (consultResultTemp == null)
                 return Guid.Empty;
@@ -39,33 +38,34 @@ namespace DA
             return result;
         }
 
-        public async Task<IEnumerable<ProductsCategories>> Get()
+        public async Task<IEnumerable<Carts>> Get()
         {
-            string sql = @"Get_ProductsCategories";
-            var result = await _sqlConnection.QueryAsync<ProductsCategories>(sql);
+            string sql = @"Get_Carts";
+            var result = await _sqlConnection.QueryAsync<Carts>(sql);
             return result;
         }
 
-        public async Task<ProductsCategories> Get(Guid IdProduct)
+        public async Task<Carts> Get(Guid Id)
         {
-            string sql = @"Get_ProductsCategories";
-            var result = await _sqlConnection.QueryAsync<ProductsCategories>(sql, new { Id = Id });
+            string sql = @"Get_Cart";
+            var result = await _sqlConnection.QueryAsync<Carts>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;
             return result.FirstOrDefault();
         }
 
-        public async Task<Guid> Update(ProductsCategories productsCategories)
+        public async Task<Guid> Update(Carts carts)
         {
-            string sql = @"Update_ProductsCategories";
-            var resultTemp = await Get(productsCategories.IdProduct);
+            string sql = @"Update_Carts";
+            var resultTemp = await Get(carts.Id);
             if (resultTemp == null)
                 return Guid.Empty;
             var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
                 new
                 {
-                    IdProduct = productsCategories.IdProduct,
-                    IdCategory = productsCategories.IdCategory
+                    Id = carts.Id,
+                    IdUser = carts.IdUser,
+                    DateCreated = carts.DateCreated
                 });
             return result;
         }

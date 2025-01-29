@@ -5,37 +5,32 @@ using Microsoft.Data.SqlClient;
 
 namespace DA
 {
-    public class SuppliersDA : ISuppliersDA
+    public class CartsxProductsDA : ICartsxProductsDA
     {
         private IDapperRepositoryDA _dapperRepository;
         private SqlConnection _sqlConnection;
 
-        public SuppliersDA(IDapperRepositoryDA dapperRepository)
+        public CartsxProductsDA(IDapperRepositoryDA dapperRepository)
         {
             _dapperRepository = dapperRepository;
             _sqlConnection = _dapperRepository.GetDapperRepository();
         }
 
-        public async Task<Guid> Add(SuppliersRequest suppliers)
+        public async Task<Guid> Add(CartsxProducts cartsxProducts)
         {
-            string sql = @"Add_Suppliers";
+            string sql = @"Add_CartsxProducts";
             var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
                 new
                 {
-                    Name = suppliers.Name,
-                    City = suppliers.City,
-                    Address = suppliers.Address,
-                    PhoneNumber = suppliers.PhoneNumber,
-                    Email = suppliers.Email,
-                    Representative = suppliers.Representative,
-                    this_id_user_create = suppliers.This_id_user_create
+                    IdProduct = cartsxProducts.IdProduct,
+                    Amount = cartsxProducts.Amount,
                 });
             return result;
         }
 
         public async Task<Guid> Delete(Guid Id)
         {
-            string sql = @"Delete_Suppliers";
+            string sql = @"Delete_CartsxProducts";
             var consultResultTemp = await Get(Id);
             if (consultResultTemp == null)
                 return Guid.Empty;
@@ -45,37 +40,32 @@ namespace DA
 
         public async Task<IEnumerable<CartsxProducts>> Get()
         {
-            string sql = @"Get_Suppliers";
+            string sql = @"Get_CartsxProducts";
             var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql);
             return result;
         }
 
         public async Task<CartsxProducts> Get(Guid Id)
         {
-            string sql = @"Get_Supplier";
+            string sql = @"Get_CartsxProducts";
             var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;
             return result.FirstOrDefault();
         }
 
-        public async Task<Guid> Update(CartsxProducts suppliers)
+        public async Task<Guid> Update(CartsxProducts cartsxProducts)
         {
             string sql = @"Update_Suppliers";
-            var resultTemp = await Get(suppliers.Id);
+            var resultTemp = await Get(cartsxProducts.Id);
             if (resultTemp == null)
                 return Guid.Empty;
             var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
                 new
                 {
-                    Id = suppliers.Id,
-                    Name = suppliers.Name,
-                    City = suppliers.City,
-                    Address = suppliers.Address,
-                    PhoneNumber = suppliers.PhoneNumber,
-                    Email = suppliers.Email,
-                    Representative = suppliers.Representative,
-                    this_id_user_create = suppliers.This_id_user_create
+                    Id = cartsxProducts.Id,
+                    IdProduct = cartsxProducts.IdProduct,
+                    Amount = cartsxProducts.Amount
                 });
             return result;
         }

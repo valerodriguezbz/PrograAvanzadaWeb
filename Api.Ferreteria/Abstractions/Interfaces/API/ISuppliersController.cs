@@ -8,7 +8,7 @@ namespace Abstractions.Interfaces.API
         Task<IActionResult> Get();
         Task<IActionResult> Get([FromRoute] Guid Id);
         Task<IActionResult> Add([FromBody] SuppliersRequest suppliers);
-        Task<IActionResult> Update([FromBody] Suppliers suppliers);
+        Task<IActionResult> Update([FromBody] CartsxProducts suppliers);
         Task<IActionResult> Delete([FromRoute] Guid Id);
     }
 }
