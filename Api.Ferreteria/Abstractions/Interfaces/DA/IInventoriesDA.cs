@@ -6,8 +6,8 @@ namespace Abstractions.Interfaces.DA
     {
         Task<IEnumerable<Inventories>> Get();
         Task<Inventories> Get(int Id);
-        Task<Guid> Add(InventoriesRequest inventories);
-        Task<Guid> Update(Inventories inventories);
-        Task<Guid> Delete(int Id);
+        Task<int> Add(InventoriesRequest inventories);
+        Task<int> Update(Inventories inventories);
+        Task<int> Delete(int Id);
     }
 }

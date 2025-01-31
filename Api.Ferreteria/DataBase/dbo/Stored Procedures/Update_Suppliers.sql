@@ -11,7 +11,6 @@
 AS
 BEGIN
     BEGIN TRY
-        -- Actualizar el proveedor
         UPDATE Suppliers
         SET 
             Name = @Name,
@@ -22,7 +21,7 @@ BEGIN
             Representative = @Representative,
             This_id_user_create = @This_id_user_create
         WHERE Id = @Id;
-        SET @UpdatedSupplierId = @Id;
+        SELECT @Id;
     END TRY
     BEGIN CATCH
         THROW;

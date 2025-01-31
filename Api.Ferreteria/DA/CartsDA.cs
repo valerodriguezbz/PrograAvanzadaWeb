@@ -40,14 +40,14 @@ namespace DA
 
         public async Task<IEnumerable<Carts>> Get()
         {
-            string sql = @"Get_Carts";
+            string sql = @"SELECT * FROM Get_Carts_View";
             var result = await _sqlConnection.QueryAsync<Carts>(sql);
             return result;
         }
 
         public async Task<Carts> Get(Guid Id)
         {
-            string sql = @"Get_Cart";
+            string sql = @"Get_Cart_By_Id";
             var result = await _sqlConnection.QueryAsync<Carts>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;

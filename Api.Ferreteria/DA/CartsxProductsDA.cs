@@ -40,14 +40,14 @@ namespace DA
 
         public async Task<IEnumerable<CartsxProducts>> Get()
         {
-            string sql = @"Get_CartsxProducts";
+            string sql = @"SELECT * FROM Get_CartsxProducts_View";
             var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql);
             return result;
         }
 
         public async Task<CartsxProducts> Get(Guid Id)
         {
-            string sql = @"Get_CartsxProducts";
+            string sql = @"Get_CartsxProducts_By_IdCart";
             var result = await _sqlConnection.QueryAsync<CartsxProducts>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;
@@ -56,14 +56,14 @@ namespace DA
 
         public async Task<Guid> Update(CartsxProducts cartsxProducts)
         {
-            string sql = @"Update_Suppliers";
+            string sql = @"Update_CartsxProducts";
             var resultTemp = await Get(cartsxProducts.IdCart);
             if (resultTemp == null)
                 return Guid.Empty;
             var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
                 new
                 {
-                    Id = cartsxProducts.IdCart,
+                    IdCart = cartsxProducts.IdCart,
                     IdProduct = cartsxProducts.IdProduct,
                     Amount = cartsxProducts.Amount
                 });

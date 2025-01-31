@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Add_Categories]
+﻿CREATE PROCEDURE Add_Categories
 	@Name VARCHAR(100)
 AS
 BEGIN

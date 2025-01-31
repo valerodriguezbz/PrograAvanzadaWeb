@@ -24,49 +24,28 @@ namespace DA
                 {
                     IdProduct = productsCategories.IdProduct,
                     IdCategory = productsCategories.IdCategory,
-                    Name = productsCategories.Name
                 });
             return result;
         }
 
-        public async Task<Guid> Delete(Guid Id)
+        public async Task<Guid> Delete(Guid IdProduct, int IdCategory)
         {
             string sql = @"Delete_ProductsCategories";
-            var consultResultTemp = await Get(Id);
-            if (consultResultTemp == null)
+            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
+                new
+                {
+                    IdProduct = IdProduct,
+                    IdCategory = IdCategory
+                });
+            if (result == Guid.Empty)
                 return Guid.Empty;
-            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new { Id = Id });
             return result;
         }
 
         public async Task<IEnumerable<ProductsCategories>> Get()
         {
-            string sql = @"Get_ProductsCategories";
+            string sql = @"SELECT * FROM Get_ProductsCategories_View";
             var result = await _sqlConnection.QueryAsync<ProductsCategories>(sql);
-            return result;
-        }
-
-        public async Task<ProductsCategories> Get(Guid IdProduct)
-        {
-            string sql = @"Get_ProductsCategories";
-            var result = await _sqlConnection.QueryAsync<ProductsCategories>(sql, new { Id = IdProduct });
-            if (result.FirstOrDefault() == null)
-                return null;
-            return result.FirstOrDefault();
-        }
-
-        public async Task<Guid> Update(ProductsCategories productsCategories)
-        {
-            string sql = @"Update_ProductsCategories";
-            var resultTemp = await Get(productsCategories.IdProduct);
-            if (resultTemp == null)
-                return Guid.Empty;
-            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
-                new
-                {
-                    IdProduct = productsCategories.IdProduct,
-                    IdCategory = productsCategories.IdCategory
-                });
             return result;
         }
     }

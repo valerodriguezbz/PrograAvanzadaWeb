@@ -6,8 +6,8 @@ namespace Abstractions.Interfaces.DA
     {
         Task<IEnumerable<Services>> Get();
         Task<Services> Get(int Id);
-        Task<Guid> Add(ServicesRequest services);
-        Task<Guid> Update(Services services);
-        Task<Guid> Delete(int Id);
+        Task<int> Add(ServicesRequest services);
+        Task<int> Update(Services services);
+        Task<int> Delete(int Id);
     }
 }

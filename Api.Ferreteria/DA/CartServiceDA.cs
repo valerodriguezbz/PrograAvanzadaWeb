@@ -40,15 +40,15 @@ namespace DA
 
         public async Task<IEnumerable<CartService>> Get()
         {
-            string sql = @"Get_CartService";
+            string sql = @"SELECT * FROM Get_CartService_View";
             var result = await _sqlConnection.QueryAsync<CartService>(sql);
             return result;
         }
 
         public async Task<CartService> Get(Guid Id)
         {
-            string sql = @"Get_CartService";
-            var result = await _sqlConnection.QueryAsync<CartService>(sql, new { Id = Id });
+            string sql = @"Get_CartService_By_Id";
+            var result = await _sqlConnection.QueryAsync<CartService>(sql, new { IdCart = Id });
             if (result.FirstOrDefault() == null)
                 return null;
             return result.FirstOrDefault(); ;
@@ -56,7 +56,7 @@ namespace DA
 
         public async Task<Guid> Update(CartService cartService)
         {
-            string sql = @"Update_Suppliers";
+            string sql = @"Update_CartService";
             var resultTemp = await Get(cartService.IdCart);
             if (resultTemp == null)
                 return Guid.Empty;

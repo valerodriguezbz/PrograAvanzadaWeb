@@ -9,6 +9,9 @@
         public DateTime? Created_at { get; set; }
         public DateTime? Updated_at { get; set; }
         public int? this_id_user_create { get; set; }
+        // For Views
+        public string? ProductName { get; set; }
+        public string? SuppliersName { get; set; }
     }
 
     public class InventoriesRequest

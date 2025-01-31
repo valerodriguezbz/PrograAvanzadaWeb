@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Services]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [Name] VARCHAR(50) NOT NULL, 
     [Description] VARCHAR(50) NOT NULL, 
     [Schedule] VARCHAR(50) NOT NULL, 

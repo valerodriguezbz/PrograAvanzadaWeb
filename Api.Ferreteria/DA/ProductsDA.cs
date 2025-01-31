@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using Abstractions.Interfaces.DA;
+﻿using Abstractions.Interfaces.DA;
 using Abstractions.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
@@ -45,14 +44,14 @@ namespace DA
 
         public async Task<IEnumerable<Products>> Get()
         {
-            string sql = @"Get_Products";
+            string sql = @"SELECT * FROM Get_Products_View";
             var result = await _sqlConnection.QueryAsync<Products>(sql);
             return result;
         }
 
         public async Task<Products> Get(Guid Id)
         {
-            string sql = @"Get_Product";
+            string sql = @"Get_Product_By_Id";
             var result = await _sqlConnection.QueryAsync<Products>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;
@@ -73,7 +72,7 @@ namespace DA
                     Description = products.Description,
                     Price = products.Price,
                     Photo = products.Photo,
-                    CUpdated_at = products.Updated_at,
+                    Updated_at = products.Updated_at,
                     this_id_user_create = products.this_id_user_create
                 });
             return result;

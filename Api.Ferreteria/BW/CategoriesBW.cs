@@ -1,5 +1,4 @@
-﻿using Abstractions.Interfaces;
-using Abstractions.Interfaces.BC;
+﻿using Abstractions.Interfaces.BC;
 using Abstractions.Interfaces.BW;
 using Abstractions.Interfaces.DA;
 using Abstractions.Models;
@@ -70,11 +69,11 @@ namespace BW
             }
         }
 
-        public Task<Categories> Get(int Id)
+        public async Task<Categories> Get(int Id)
         {
             try
             {
-                return _categoriesDA.Get(Id);
+                return await _categoriesDA.Get(Id);
             }
             catch (Microsoft.Data.SqlClient.SqlException ex)
             {

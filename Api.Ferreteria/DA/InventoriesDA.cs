@@ -16,59 +16,57 @@ namespace DA
             _sqlConnection = _dapperRepository.GetDapperRepository();
         }
 
-        public async Task<Guid> Add(InventoriesRequest inventories)
+        public async Task<int> Add(InventoriesRequest inventories)
         {
             string sql = @"Add_Inventories";
-            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
+            var result = await _sqlConnection.ExecuteScalarAsync<int>(sql,
                 new
                 {
                     IdProduct = inventories.IdProduct,
                     IdSupplier = inventories.IdSupplier,
                     Stock = inventories.Stock,
                     Created_At = inventories.Created_at,
-                    this_id_user_create = inventories.this_id_user_create
+                    This_id_user_create = inventories.this_id_user_create
                 });
             return result;
         }
 
-        public async Task<Guid> Delete(int Id)
+        public async Task<int> Delete(int Id)
         {
             string sql = @"Delete_Inventories";
             var consultResultTemp = await Get(Id);
             if (consultResultTemp == null)
-                return Guid.Empty;
-            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new { Id = Id });
+                return 0;
+            var result = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { Id = Id });
             return result;
         }
 
         public async Task<IEnumerable<Inventories>> Get()
         {
-            string sql = @"Get_Inventories";
+            string sql = @"SELECT * FROM Get_Inventories_View";
             var result = await _sqlConnection.QueryAsync<Inventories>(sql);
             return result;
         }
 
         public async Task<Inventories> Get(int Id)
         {
-            string sql = @"Get_Inventory";
+            string sql = @"Get_Inventory_By_Id";
             var result = await _sqlConnection.QueryAsync<Inventories>(sql, new { Id = Id });
             if (result.FirstOrDefault() == null)
                 return null;
             return result.FirstOrDefault();
         }
 
-        public async Task<Guid> Update(Inventories inventories)
+        public async Task<int> Update(Inventories inventories)
         {
             string sql = @"Update_Inventories";
             var resultTemp = await Get(inventories.Id);
             if (resultTemp == null)
-                return Guid.Empty;
-            var result = await _sqlConnection.ExecuteScalarAsync<Guid>(sql,
+                return 0;
+            var result = await _sqlConnection.ExecuteScalarAsync<int>(sql,
                 new
                 {
                     Id = inventories.Id,
-                    IdProduct = inventories.IdProduct,
-                    IdSupplier = inventories.IdSupplier,
                     Stock = inventories.Stock,
                     Updated_at = inventories.Updated_at,
                     this_id_user_create = inventories.this_id_user_create
