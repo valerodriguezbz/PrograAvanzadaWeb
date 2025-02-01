@@ -11,7 +11,7 @@ namespace Abstractions.Models
         public int? PhoneNumber { get; set; }
         public string? Email { get; set; }
         public string? Representative { get; set; }
-        public int? This_id_user_create { get; set; }
+        public Guid? This_id_user_create { get; set; }
     }
 
     public class SuppliersRequest : IHasName, IHasCity, IHasAddress, IHasEmail
@@ -22,6 +22,6 @@ namespace Abstractions.Models
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
         public string? Representative { get; set; }
-        public int This_id_user_create { get; set; }
+        public Guid This_id_user_create { get; set; }
     }
 }

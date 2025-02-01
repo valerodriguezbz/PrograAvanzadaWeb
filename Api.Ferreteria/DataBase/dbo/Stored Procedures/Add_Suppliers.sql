@@ -5,7 +5,7 @@
     @PhoneNumber INT,
     @Email VARCHAR(255),
     @Representative VARCHAR(100) = NULL,
-    @this_id_user_create INT,
+    @this_id_user_create UNIQUEIDENTIFIER,
     @Id UNIQUEIDENTIFIER OUTPUT
 AS
 BEGIN

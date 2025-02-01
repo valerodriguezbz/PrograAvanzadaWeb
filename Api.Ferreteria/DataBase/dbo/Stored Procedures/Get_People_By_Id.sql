@@ -9,7 +9,6 @@ BEGIN
             City, 
             Address, 
             PhoneNumber, 
-            Email,
             created_at
         FROM People
         WHERE Id = @Id;

@@ -3,5 +3,6 @@ AS
 SELECT Id,
 COALESCE(Name, ' ') + COALESCE(FirstLastName, '') AS Name,
 City,
-Email
+Address,
+PhoneNumber
 FROM People

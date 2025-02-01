@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE Add_Carts
     @Id UNIQUEIDENTIFIER OUTPUT,
-    @IdUser int,
+    @IdUser UNIQUEIDENTIFIER,
     @DateCreated DateTime
 AS
 BEGIN

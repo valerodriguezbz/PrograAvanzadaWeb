@@ -7,6 +7,6 @@
     [Photo] VARBINARY(MAX) NULL, 
     [created_at] DATETIME NOT NULL, 
     [updated_at] DATETIME NULL, 
-    [this_id_user_create] INT NOT NULL, 
+    [this_id_user_create] UNIQUEIDENTIFIER NOT NULL, 
     CONSTRAINT [FK_Products_ToUsers] FOREIGN KEY (this_id_user_create) REFERENCES Users(Id)
 )

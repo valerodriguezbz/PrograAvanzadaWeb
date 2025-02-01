@@ -4,6 +4,6 @@
     [Type] VARCHAR(50) NOT NULL, 
     [Created_at] DATETIME NULL, 
     [Updated_at] DATETIME NULL, 
-    [User_created] INT NULL, 
-    [User_updated] INT NULL
+    [User_created] UNIQUEIDENTIFIER NULL, 
+    [User_updated] UNIQUEIDENTIFIER NULL
 )

@@ -6,7 +6,7 @@
     @PhoneNumber INT,
     @Email VARCHAR(255),
     @Representative VARCHAR(100) = NULL,
-    @This_id_user_create INT,
+    @This_id_user_create UNIQUEIDENTIFIER,
     @UpdatedSupplierId UNIQUEIDENTIFIER OUTPUT
 AS
 BEGIN

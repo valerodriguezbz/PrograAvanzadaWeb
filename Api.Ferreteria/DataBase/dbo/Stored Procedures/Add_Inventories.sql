@@ -3,7 +3,7 @@
     @IdSupplier UNIQUEIDENTIFIER,
     @Stock int,
     @Created_At DateTime,
-    @This_id_user_create int
+    @This_id_user_create UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;

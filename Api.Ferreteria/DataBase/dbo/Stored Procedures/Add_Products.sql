@@ -4,7 +4,7 @@
     @Price float,
     @Photo VARBINARY(MAX),
     @Created_at DateTime,
-    @this_id_user_create int,
+    @this_id_user_create UNIQUEIDENTIFIER,
     @Id UNIQUEIDENTIFIER OUTPUT
 AS
 BEGIN

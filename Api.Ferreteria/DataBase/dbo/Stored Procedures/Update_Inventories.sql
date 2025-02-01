@@ -2,7 +2,7 @@
 	@Id int OUTPUT,
     @Stock int,
     @Updated_at DateTime,
-    @This_id_user_create int
+    @This_id_user_create UNIQUEIDENTIFIER
 AS
 BEGIN
     BEGIN TRY

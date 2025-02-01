@@ -1,11 +1,10 @@
 ﻿CREATE TABLE [dbo].[Users]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [IdPerson] INT NOT NULL, 
+    [Email] VARCHAR(50) NOT NULL, 
     [PasswordHash] VARCHAR(255) NOT NULL, 
     [Created_at] DATETIME NULL, 
     [Updated_at] DATETIME NULL, 
-    [user_created] INT NULL, 
-    [user_modified] INT NULL, 
     CONSTRAINT [FK_Users_ToPeople] FOREIGN KEY (IdPerson) REFERENCES People(Id)
 )

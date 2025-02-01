@@ -27,7 +27,6 @@ namespace DA
                     City = people.City,
                     Address = people.Address,
                     PhoneNumber = people.PhoneNumber,
-                    Email = people.Email,
                     Created_At = people.CreatedAt,
                 });
             return result;
@@ -72,8 +71,7 @@ namespace DA
                     FirstLastName = people.FirstLastName,
                     City = people.City,
                     Address = people.Address,
-                    PhoneNumber = people.PhoneNumber,
-                    Email = people.Email,
+                    PhoneNumber = people.PhoneNumber
                 });
             return result;
         }
